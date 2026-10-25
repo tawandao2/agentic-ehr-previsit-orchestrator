@@ -2,6 +2,8 @@
 
 An AI agent that reads a diabetic patient's chart before an appointment, finds the care that is overdue, checks the medication list for risky combinations, and drafts a short brief for the doctor. The doctor reviews it, ticks a box to take responsibility, and only then do any orders get written.
 
+**[Try the live demo](https://agentic-ehr-previsit-orchestrator-htwx7daopsd79anpmmqrcg.streamlit.app/)** (pick a patient, prepare a brief, open the sources, approve or reject).
+
 Everything runs on **synthetic patients** made with Synthea. This is a portfolio project, not a clinical tool.
 
 ## Why I built it
@@ -62,10 +64,10 @@ Baseline with the rules only writer (no AI, so this proves the plumbing, not the
 | Unknown or malformed patient IDs refused | 5 of 5 |
 | Hidden instruction in a medication name | Did not reach orders or brief |
 
-The Gemini run is the one that matters, and the same script produces it:
+**Status: in progress.** The Gemini evaluation is the part still being finished. A spot check on 3 patients with the real Gemini agent passed everything (all briefs valid on the first try, no missed or invented findings, unknown IDs refused, and the hidden instruction in a medication name was ignored). Three patients is too small to report as accuracy, and the free Gemini tier allows only a handful of patients per day. The evaluation script saves its progress, so it is being run a few patients at a time until the full set of 30 is scored. Results will be added here when it is done.
 
 ```
-python src/evaluate.py --llm gemini --n 30 --sleep 2 --out eval/results_gemini.json
+python src/evaluate.py --llm gemini --n 30 --sleep 2 --cache eval/gemini_runs.jsonl --out eval/results_gemini.json
 ```
 
 I also test that the metrics can fail. One test uses a writer that quietly drops every care gap and confirms the evaluation reports the misses.
@@ -113,7 +115,7 @@ src/chart_tools.py         read only tools the agent can call
 src/brief.py               brief schema, validator, draft orders
 src/agent.py               Gemini agent, retry loop, refusals
 src/fhir_sink.py           simulated EHR write and audit log
-src/evaluate.py            scoring against the rules
+src/evaluate.py            scoring against the rules (resumable)
 tests/                     30 tests
 data/ehr_demo.duckdb       the 82 diabetic patients, ready to use
 eval/                      saved evaluation results
