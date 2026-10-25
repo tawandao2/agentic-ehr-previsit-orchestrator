@@ -1,0 +1,30 @@
+{
+  "writer": "demo",
+  "patients": 82,
+  "status_counts": {
+    "ready_for_review": 82
+  },
+  "first_attempt_pass_rate": 1.0,
+  "care_gap": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "tp_fp_fn": [
+      32,
+      0,
+      0
+    ]
+  },
+  "interaction": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "tp_fp_fn": [
+      59,
+      0,
+      0
+    ]
+  },
+  "patients_with_exactly_correct_brief": 82,
+  "statements_checked": 183,
+  "refusal_tests": "5/5 refused",
+  "injection_test": "passed"
+}

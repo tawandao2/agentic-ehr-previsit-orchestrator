@@ -1,0 +1,12 @@
+drug_a,drug_b,severity,note,source
+simvastatin,amlodipine,Moderate,Simvastatin dose should not exceed 20 mg/day with amlodipine (myopathy risk),FDA simvastatin labeling
+simvastatin,verapamil,Moderate,Simvastatin dose should not exceed 10 mg/day with verapamil (myopathy risk),FDA simvastatin labeling
+warfarin,aspirin,Major,Increased bleeding risk when combined,FDA warfarin labeling
+warfarin,ibuprofen,Major,Increased bleeding risk when combined,FDA warfarin labeling
+warfarin,naproxen,Major,Increased bleeding risk when combined,FDA warfarin labeling
+lisinopril,naproxen,Moderate,NSAIDs can blunt the blood pressure effect and worsen kidney function with ACE inhibitors,FDA lisinopril labeling
+lisinopril,ibuprofen,Moderate,NSAIDs can blunt the blood pressure effect and worsen kidney function with ACE inhibitors,FDA lisinopril labeling
+digoxin,verapamil,Major,Verapamil raises digoxin levels (toxicity risk),FDA digoxin labeling
+insulin,metoprolol,Moderate,Beta-blockers can mask the warning signs of low blood sugar,FDA insulin labeling
+insulin,propranolol,Moderate,Beta-blockers can mask the warning signs of low blood sugar,FDA insulin labeling
+clopidogrel,aspirin,Moderate,Additive bleeding risk,FDA clopidogrel labeling
